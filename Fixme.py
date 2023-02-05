@@ -6,15 +6,6 @@ and not for loops or list comprehensions.
 '''
 
 def evens(n):
-    
-    foo = lambda x: x%2 == 0
-    
-    xs = map(range(n+1))
-    
-    xs = list(filter(foo, xs))
-
-    return xs
-   
     '''
     Returns a list of even numbers from 0 to n inclusive.
 
@@ -29,17 +20,10 @@ def evens(n):
     >>> evens(-1)
     []
     '''
+    return list(filter(lambda x: x % 2 == 0, map(range(n+1))))
 
 
 def threes(n):
-    
-    foo = lambda x: '3' in str(x)
-    
-    xs = list(filter(foo,range(n+1)))
-
-    return xs
-    
-
     '''
     Returns a list of all numbers from 0 to n inclusive that contain the digit 3.
 
@@ -54,16 +38,10 @@ def threes(n):
     >>> threes(50)
     [3, 13, 23, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 43]
     '''
+    return list(filter(lambda x: '3' in str(x), range(0, n+1)))
 
 
 def small_words(text):
-   
-    foo = lambda x: len(x) < 5
-
-    xs = list(filter(foo, text.split()))
-
-    return xs
-
     '''
     Returns a list of all words in the input text that are less than 5 characters long.
 
@@ -79,16 +57,10 @@ def small_words(text):
     >>> small_words('a big word is bad')
     ['a', 'big', 'word', 'is', 'bad']
     '''
+    return list(filter(lambda x: len(x) < 5, text.split()))
 
 
 def squares(n):
-    
-    foo = lambda x: sqrt(x) == int(sqrt(x))
-
-    xs = list(filter(foo, range(1, n+1)))
-
-    return xs
-
     '''
     Returns a list of all square number between 1 and n inclusive.
     Recall that the nth square number is defined to be n*n.
@@ -102,17 +74,10 @@ def squares(n):
     >>> squares(10)
     [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
     '''
+    return list(filter(lambda x: sqrt(x) == int(sqrt(x)), range(1, n+1)))
 
 
 def lengths(strings):
-
-    foo = lambda x: len(x)
-
-    xs = list(map(foo, strings))
-
-    return xs
-    
-    
     '''
     Given a list of strings, returns a list of the lengths of the corresponding strings.
 
@@ -123,3 +88,4 @@ def lengths(strings):
     >>> lengths(['this','is','a','test'])
     [4, 2, 1, 4]
     '''
+    return list(map(lambda x: len(x), strings))
